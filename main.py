@@ -74,20 +74,20 @@ def check4(answer):
 
 def check5(answer):
     if answer[5] == 0:
-        if answer[1] == answer[7] and answer[3] == answer[7] and answer[0] != answer[7] and answer[5] != answer[7] \
-            and answer[2] != answer[7] and answer[9] != answer[7] and answer[4] != answer[7] and answer[8] != answer[7]:
+        if (answer[1] == answer[7] and answer[3] == answer[7]) and (answer[0] != answer[7] or answer[5] != answer[7]) \
+            and (answer[2] != answer[7] or answer[9] != answer[7]) and (answer[4] != answer[7] or answer[8] != answer[7]):
             return True
     if answer[5] == 1:
-        if answer[1] != answer[7] and answer[3] != answer[7] and answer[0] == answer[7] and answer[5] == answer[7] \
-            and answer[2] != answer[7] and answer[9] != answer[7] and answer[4] != answer[7] and answer[8] != answer[7]:
+        if (answer[1] != answer[7] or answer[3] != answer[7]) and (answer[0] == answer[7] and answer[5] == answer[7]) \
+            and (answer[2] != answer[7] or answer[9] != answer[7]) and (answer[4] != answer[7] or answer[8] != answer[7]):
             return True
     if answer[5] == 2:
-        if answer[1] != answer[7] and answer[3] != answer[7] and answer[0] != answer[7] and answer[5] != answer[7] \
-            and answer[2] == answer[7] and answer[9] == answer[7] and answer[4] != answer[7] and answer[8] != answer[7]:
+        if (answer[1] != answer[7] or answer[3] != answer[7]) and (answer[0] != answer[7] or answer[5] != answer[7]) \
+            and (answer[2] == answer[7] and answer[9] == answer[7]) and (answer[4] != answer[7] or answer[8] != answer[7]):
             return True
     if answer[5] == 3:
-        if answer[1] != answer[7] and answer[3] != answer[7] and answer[0] != answer[7] and answer[5] != answer[7] \
-            and answer[2] != answer[7] and answer[9] != answer[7] and answer[4] == answer[7] and answer[8] == answer[7]:
+        if (answer[1] != answer[7] or answer[3] != answer[7]) and (answer[0] != answer[7] or answer[5] != answer[7]) \
+            and (answer[2] != answer[7] or answer[9] != answer[7]) and (answer[4] == answer[7] and answer[8] == answer[7]):
             return True
 
 def check6(answer):
@@ -164,6 +164,8 @@ def Ten2Four(x):
 
 # answer = [1,1,1,1,1,1,1,1,1,1] # initial answer for the 10 questions
 answer = 0
+# answer = 402116
+# answer = 402117 # This verifies that there is only one answer
 temp = [0,0,0,0,0,0,0,0,0,0]
 if __name__ == '__main__':
     # print(Ten2Four(99))
@@ -204,4 +206,10 @@ if __name__ == '__main__':
         break
 
     lst = [int(x) for x in str(Ten2Four(answer))]
-    print(lst)
+    sym = ['A', 'B', 'C', 'D']
+    print('The answers are:')
+    # for item in lst:
+    #     print(sym[item])
+    # print('\n')
+    ans = [sym[item] for item in lst]
+    print(ans)
